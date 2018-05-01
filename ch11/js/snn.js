@@ -51,8 +51,6 @@ const addLink = () => {
   links.push(new Link(url, title, author));
 }
 
-
-
 outer:
 while (true) {
   let q = prompt(`Choose an option:
@@ -75,9 +73,4 @@ while (true) {
     break;
   }
 }
-
-
-
-
-
 
