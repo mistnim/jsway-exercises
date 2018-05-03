@@ -1,11 +1,11 @@
 const showChild = (node, index) => {
   if (node.nodeType !== document.ELEMENT_NODE) {
     console.error("Not an element node.");
-    return nil;
+    return null;
   }
-  if (index >= node.length) {
+  if (index >= node.childNodes.length) {
     console.error("Index out of range.");
-    return nil;
+    return null;
   }
   return node.childNodes[index];
 };
