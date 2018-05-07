@@ -43,3 +43,14 @@ for (let w of words) {
 }
 dictElement.appendChild(dlElement);
 
+let fColor = prompt('Select a foreground color:');
+let bColor = prompt('Select a backgorund color:');
+let colorDivElements = document.querySelectorAll('#colors div');
+
+for(let div of colorDivElements) {
+  div.style.color =  fColor;
+  div.style.backgroundColor = bColor;
+}
+
+
+
