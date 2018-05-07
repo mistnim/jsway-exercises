@@ -43,6 +43,8 @@ for (let w of words) {
 }
 dictElement.appendChild(dlElement);
 
+// Color Exercise
+
 let fColor = prompt('Select a foreground color:');
 let bColor = prompt('Select a backgorund color:');
 let colorDivElements = document.querySelectorAll('#colors div');
@@ -52,5 +54,17 @@ for(let div of colorDivElements) {
   div.style.backgroundColor = bColor;
 }
 
+// Info Exercise
 
+let infoContentElement = document.getElementById('info-content');
+let infosElement = document.getElementById('infos');
+let infoComputedStyle = getComputedStyle(infoContentElement);
+let infoWidth = infoComputedStyle.width;
+let infoHeight = infoComputedStyle.height;
 
+infosElement.insertAdjacentHTML('afterbegin', '<h1>Information about the element</h1>');
+let infoListElement = document.createElement('ul');
+infoListElement.insertAdjacentHTML('beforeend',`<li>Height: ${infoHeight}</li>`);
+infoListElement.insertAdjacentHTML('beforeend',`<li>Width: ${infoWidth}</li>`);
+
+infosElement.appendChild(infoListElement);
