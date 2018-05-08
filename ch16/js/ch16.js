@@ -45,3 +45,23 @@ window.addEventListener("keypress", e => {
     default:
   }
 });
+
+// Dessert Exercise
+
+const ulDessertsElements = document.getElementById("desserts");
+const addButtonElement = document.getElementById("addButton");
+
+const addDessert = dessert => {
+  const liElement = document.createElement("li");
+  liElement.textContent = dessert;
+  liElement.addEventListener("click", e => {
+    const dessert = prompt("New name:");
+    e.target.textContent = dessert;
+  });
+  ulDessertsElements.appendChild(liElement);
+};
+
+addButtonElement.addEventListener("click", () => {
+  const dessert = prompt("Dessert name:");
+  addDessert(dessert);
+});
