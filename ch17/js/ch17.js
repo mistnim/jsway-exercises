@@ -26,3 +26,69 @@ pwFormElement.addEventListener("submit", e => {
     return;
   }
 });
+
+// GOT Exercise
+// Character list. Each house has a name and a code
+const houses = [
+  {
+    code: "ST",
+    name: "Stark"
+  },
+  {
+    code: "LA",
+    name: "Lannister"
+  },
+  {
+    code: "BA",
+    name: "Baratheon"
+  },
+  {
+    code: "TA",
+    name: "Targaryen"
+  }
+];
+
+// Return an array of characters belonging to a house
+const getCharacters = houseCode => {
+  switch (houseCode) {
+    case "ST":
+      return ["Eddard", "Catelyn", "Robb", "Sansa", "Arya", "Jon Snow"];
+    case "LA":
+      return ["Tywin", "Cersei", "Jaime", "Tyrion"];
+    case "BA":
+      return ["Robert", "Stannis", "Renly"];
+    case "TA":
+      return ["Aerys", "Daenerys", "Viserys"];
+    default:
+      return []; // Empty array
+  }
+};
+
+const gotFormElement = document.getElementById("gotForm");
+const selectHouseElement = gotFormElement.elements.house;
+
+const addHouseOption = house => {
+  const optionElement = document.createElement("option");
+  optionElement.value = house.code;
+  optionElement.textContent = house.name;
+  selectHouseElement.appendChild(optionElement);
+};
+
+houses.forEach(h => addHouseOption(h));
+
+const charactersElement = document.getElementById("characters");
+const updateCharList = code => {
+  const characters = getCharacters(code);
+  while (charactersElement.firstChild) {
+    charactersElement.removeChild(charactersElement.firstChild);
+  }
+  characters.forEach(c => {
+    liElement = document.createElement("li");
+    liElement.textContent = c;
+    charactersElement.appendChild(liElement);
+  });
+};
+
+selectHouseElement.addEventListener("change", e =>
+  updateCharList(e.target.value)
+);
