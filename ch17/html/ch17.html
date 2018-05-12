@@ -3,6 +3,26 @@
     <head>
         <meta charset="utf-8">
         <title>Ch. 17</title>
+        <style>
+         /* Add spacing between each country suggestion */
+         .suggestion {
+             padding-left: 2px;
+             padding-right: 2px;
+         }
+
+         /* Change suggestion color when hovering it with the mouse */
+         .suggestion:hover {
+             background-color: #adf;
+             cursor: pointer;
+         }
+
+         /* Position the suggestion list just below the input box */
+         #suggestions {
+             position: absolute;
+             border: 1px solid black;
+             left: 155px;
+         }
+        </style>
     </head>
 
     <body>
@@ -21,6 +41,9 @@
 
         <p id="passwordHelp"></p>
         <hr />
+
+        <!-- Got ex. -->
+
         <h1>A few of the Game of Thrones characters</h1>
         <form id="gotForm">
             <label for="house">House</label>:
@@ -32,6 +55,15 @@
         <p>
             <ul id="characters"></ul>
         </p>
+        <hr />
+
+        <!-- Autocomplete ex. -->
+
+        <label for="country">Enter a country name</label>:
+        <input type="text" id="country">
+        <div id="suggestions"></div>
+
+        <!-- scripts -->
         <script src="../js/ch17.js"></script>
     </body>
 </html>

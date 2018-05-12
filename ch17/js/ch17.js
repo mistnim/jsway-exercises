@@ -92,3 +92,32 @@ const updateCharList = code => {
 selectHouseElement.addEventListener("change", e =>
   updateCharList(e.target.value)
 );
+
+// Autocomplete ex.
+
+const countryList = [
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Anguilla",
+  "Antarctica",
+  "Antigua-and-Barbuda",
+  "Argentina",
+  "Armenia",
+  "Aruba",
+  "Australia",
+  "Autria",
+  "Azerbaïjan"
+];
+
+const countryElement = document.getElementById("country");
+
+const showSuggestionsFor = str => {
+  countryList.filter(c => c.startsWith(str));
+};
+
+countryElement.addEventListener("input", e => {
+  showSuggestionsFor(e.target.value);
+});
