@@ -108,14 +108,28 @@ const countryList = [
   "Armenia",
   "Aruba",
   "Australia",
-  "Autria",
+  "Austria",
   "Azerbaïjan"
 ];
 
 const countryElement = document.getElementById("country");
+const suggestionsElement = document.getElementById("suggestions");
 
 const showSuggestionsFor = str => {
-  countryList.filter(c => c.startsWith(str));
+  let fList = [];
+  if (str !== "") fList = countryList.filter(c => c.startsWith(str));
+  while (suggestionsElement.firstChild) {
+    suggestionsElement.removeChild(suggestionsElement.firstChild);
+  }
+  for (let l of fList) {
+    const divElement = document.createElement("div");
+    divElement.classList.add("suggestion");
+    divElement.addEventListener("click", e => {
+      countryElement.value = e.target.textContent;
+    });
+    divElement.textContent = l;
+    suggestionsElement.appendChild(divElement);
+  }
 };
 
 countryElement.addEventListener("input", e => {
