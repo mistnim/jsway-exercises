@@ -59,3 +59,43 @@ githubFormElement.addEventListener("submit", e => {
   e.preventDefault();
   lookupGithubUser(e.target.elements.username.value);
 });
+
+// Star Wars Exercise
+
+const starWarsLinksElement = document.getElementById("starWarsLinks");
+const starWarsInfosElement = document.getElementById("starWarsInfos");
+
+const urls = [...Array(10).keys()].map(
+  ix => `https://swapi.co/api/planets/${ix + 1}/?format=json`
+);
+
+let planetsArray;
+
+Promise.all(urls.map(url => fetch(url))).then(responses =>
+  Promise.all(responses.map(res => res.json())).then(planets => {
+    planetsArray = planets;
+    planets.forEach((p, i) => {
+      const aElement = document.createElement("a");
+      aElement.textContent = i + 1;
+      aElement.href = "";
+      starWarsLinksElement.appendChild(aElement);
+      if (i != 9) {
+        const separatorElement = document.createTextNode(" | ");
+        starWarsLinksElement.appendChild(separatorElement);
+      }
+      aElement.addEventListener("click", e => {
+        e.preventDefault();
+        p = planetsArray[e.target.textContent - 1];
+        const pElement = document.createElement("p");
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = p.name;
+        pElement.textContent = `Climate: ${p.climate}. Population: ${
+          p.population
+        }. Appears in ${p.films.length} movie(s).`;
+        starWarsInfosElement.innerHTML = "";
+        starWarsInfosElement.appendChild(titleElement);
+        starWarsInfosElement.appendChild(pElement);
+      });
+    });
+  })
+);
