@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ch. 25</title>
+    </head>
+
+    <body>
+
+        <h1>Ch. 25 Client</h1>
+        <h2>Buy T-shirts</h2>
+        <form id="tshirtForm">
+
+            <h3>Select size</h3>
+            <select name="size">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+            <h3>Select color</h3>
+            <p>
+                <label for="red">Red:</label>
+                <input name="color" selected type="radio" id="red" value="red"/>
+                <label for="yellow">Yellow:</label>
+                <input name="color" type="radio" id="yellow" value="yellow"/>
+                <label for="blue">Blue:</label>
+                <input name="color" type="radio" id="blue" value="blue"/>
+            </p>
+            <input type="submit" value="Buy"/>
+        </form>
+        <div id="tshirtResult">
+        </div>
+        <hr/>
+        <h2>Add new Article</h2>
+        <form id="blogForm">
+            <p>
+                <label for="title">Title: </label>
+                <input name="tilte" type="text" value="">
+            </p>
+            <p>
+                <label for="content">Content: </label>
+            </p>
+            <p>
+                <textarea cols="30" name="content" rows="10"></textarea>
+            </p>
+            <input type="submit" value="Add"/>
+        </form>
+        <div id="result">
+        </div>
+
+        <!-- scripts -->
+        <script src="../js/client.js"></script>
+    </body>
+</html>
